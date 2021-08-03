@@ -26,12 +26,12 @@ class KeywordQueryEventListener(EventListener):
 		search_term = event.get_argument()
 		
 		for daemon in daemons:
-				items.append(ExtensionResultItem(icon='images/icon.png',
+				items.append(ExtensionResultItem(icon='images/emacs.png',
 												 name=daemon,
 												 description=f'Open {daemon}',
 												 on_enter=RunScriptAction(f'emacsclient -c -s {search_term}')))
 		if search_term not in daemons:
-			items.append(ExtensionResultItem(icon='images/icon.png',
+			items.append(ExtensionResultItem(icon='images/emacs.png',
 												name=search_term,
 												description=f'Create {search_term}',
 												on_enter=RunScriptAction(f'emacs --daemon={search_term}; emacsclient -c -s {search_term}')))
