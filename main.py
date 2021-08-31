@@ -8,7 +8,6 @@ from ulauncher.api.shared.action.ExtensionCustomAction import ExtensionCustomAct
 from ulauncher.api.shared.action.HideWindowAction import HideWindowAction
 from ulauncher.api.shared.action.RunScriptAction import RunScriptAction
 import os
-from time import sleep
 
 class DemoExtension(Extension):
 
@@ -29,7 +28,7 @@ class KeywordQueryEventListener(EventListener):
 				items.append(ExtensionResultItem(icon='images/emacs.png',
 												 name=daemon,
 												 description=f'Open {daemon}',
-												 on_enter=RunScriptAction(f'emacsclient -c -s {search_term}')))
+												 on_enter=RunScriptAction(f'emacsclient -c -s {daemon}')))
 		if search_term not in daemons:
 			items.append(ExtensionResultItem(icon='images/emacs.png',
 												name=search_term,
