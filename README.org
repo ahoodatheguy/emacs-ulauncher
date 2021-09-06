@@ -3,9 +3,13 @@
 
 /Open your daemons with ease using Ulauncher./
 
-* Installation Instructions
-Installing through Ulauncher doesn't work yet. Instead you have to install it manually.
 
+*NOTE:* This extension does *not* support python2 and has no plans to
+
+* Installation Instructions
+Installing through Ulauncher /should/ work as of right now.
+
+However just in case it doesn't running the code below will achieve the same effect.
 
 #+begin_src sh :results silent
   git clone https://github.com/ahoodatheguy/emacs-ulauncher ~/.local/share/ulauncher/extensions/emacs-ulauncher/
