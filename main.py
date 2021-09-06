@@ -1,4 +1,3 @@
-import json
 from ulauncher.api.client.Extension import Extension
 from ulauncher.api.client.EventListener import EventListener
 from ulauncher.api.shared.event import KeywordQueryEvent, ItemEnterEvent
@@ -9,19 +8,24 @@ from ulauncher.api.shared.action.HideWindowAction import HideWindowAction
 from ulauncher.api.shared.action.RunScriptAction import RunScriptAction
 import os
 
-class DemoExtension(Extension):
+class EmacsExtension(Extension):
 
 	def __init__(self):
-		super(DemoExtension, self).__init__()
+		super(EmacsExtension, self).__init__()
 		self.subscribe(KeywordQueryEvent, KeywordQueryEventListener())
 
 
 class KeywordQueryEventListener(EventListener):
 
 	def on_event(self, event, extension):
+		
 		items = []
-		daemons = os.listdir('/run/user/1000/emacs/')
+		
+		server_dir = extension.preferences['location']
+		
+		daemons = os.listdir(server_dir)
 
+		
 		search_term = event.get_argument()
 		
 		for daemon in daemons:
@@ -42,4 +46,4 @@ class KeywordQueryEventListener(EventListener):
 
 
 if __name__ == '__main__':
-	DemoExtension().run()
+	EmacsExtension().run()
